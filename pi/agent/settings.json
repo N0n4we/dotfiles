@@ -1,0 +1,15 @@
+{
+  "lastChangelogVersion": "0.80.7",
+  "theme": "dark",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "kimi-k3",
+  "defaultThinkingLevel": "high",
+  "npmCommand": [
+    "pnpm"
+  ],
+  "packages": [
+    "npm:pi-hermes-memory",
+    "npm:pi-web-access",
+    "npm:pi-subagents"
+  ]
+}

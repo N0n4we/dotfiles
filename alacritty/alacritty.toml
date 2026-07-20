@@ -1,0 +1,46 @@
+[general]
+import = ["~/.config/alacritty/themes/gruvbox_dark.toml"]
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold Italic"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Z"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0001"
+key = "Left"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0005"
+key = "Right"
+mods = "Command"
