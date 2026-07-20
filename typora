@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# typora — 在终端中用 Typora 打开文件
+#
+# 用法:
+#   typora              # 仅启动 Typora
+#   typora note.md      # 用 Typora 打开文件(可多个)
+#   typora new.md       # 文件不存在时自动创建再打开
+
+set -euo pipefail
+
+APP="/Applications/Typora.app"
+
+if [[ ! -d "$APP" ]]; then
+  echo "typora: 未找到 $APP" >&2
+  exit 1
+fi
+
+if [[ $# -eq 0 ]]; then
+  open -a "$APP"
+  exit 0
+fi
+
+for f in "$@"; do
+  if [[ ! -e "$f" ]]; then
+    mkdir -p -- "$(dirname -- "$f")"
+    touch -- "$f"
+    echo "typora: 已创建新文件 $f"
+  fi
+done
+
+open -a "$APP" -- "$@"
