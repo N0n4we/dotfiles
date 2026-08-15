@@ -1,5 +1,6 @@
 let mapleader = " "
 set clipboard^=unnamed
+set noswapfile
 set nocompatible
 syntax on
 filetype plugin indent on
