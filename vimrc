@@ -2,6 +2,7 @@ let mapleader = " "
 set clipboard^=unnamed
 set noswapfile
 set nocompatible
+set signcolumn=no
 syntax on
 filetype plugin indent on
 let g:markdown_fenced_languages = [
@@ -35,8 +36,8 @@ set shortmess+=I
 set laststatus=0
 
 autocmd VimEnter * call setreg('+', getreg('+'))
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
+" autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\n\+\%$//e
 
 nnoremap <leader>x :bd<CR>
 nnoremap <leader>X :bd!<CR>
@@ -61,3 +62,33 @@ let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<C-j>'
 let g:VM_maps["Add Cursor Up"] = '<C-k>'
 let g:VM_maps["Visual Regex"] = '<C-h>'
+
+packadd coc.nvim
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-pyright', 'coc-rust-analyzer', 'coc-go', 'coc-clangd']
+
+set nobackup
+set nowritebackup
+set updatetime=300
+call coc#config('suggest.noselect', v:true)
+
+" Trigger completion with Tab and navigate the completion menu
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Diagnostics and code navigation
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
