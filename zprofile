@@ -22,7 +22,7 @@ alias c='jj commit'
 alias s='jj squash'
 alias p='jj git push'
 alias pm='jj b s main -r @- && jj git push -r @-'
-alias pd='jj b s develop -r @- && jj git push -r @-'
+alias pd='jj b s dev -r @- && jj git push -r @-'
 alias j='jj'
 
 function jjj() {
@@ -41,6 +41,7 @@ function jjj() {
 
 export PI_OFFLINE=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ENV_HINTS=1
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'

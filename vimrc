@@ -34,6 +34,7 @@ set ignorecase
 set smartcase
 set shortmess+=I
 set laststatus=0
+set background=dark
 
 autocmd VimEnter * call setreg('+', getreg('+'))
 " autocmd BufWritePre * %s/\s\+$//e
