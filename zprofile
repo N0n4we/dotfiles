@@ -55,5 +55,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# fnm
-eval "$(fnm env)"
+eval "$(fnm env --shell zsh)"
+
+eval "$(atuin init zsh)"
