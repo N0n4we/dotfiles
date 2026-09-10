@@ -24,6 +24,7 @@ alias p='jj git push'
 alias pm='jj b s main -r @- && jj git push -r @-'
 alias pd='jj b s dev -r @- && jj git push -r @-'
 alias j='jj'
+alias switch='gh auth switch && gh auth setup-git'
 
 function jjj() {
 	target_dir="${1:-.}"

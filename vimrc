@@ -65,7 +65,7 @@ let g:VM_maps["Add Cursor Up"] = '<C-k>'
 let g:VM_maps["Visual Regex"] = '<C-h>'
 
 packadd coc.nvim
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-pyright', 'coc-rust-analyzer', 'coc-go', 'coc-clangd']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-pyright', 'coc-rust-analyzer', 'coc-go', 'coc-clangd', 'coc-sh', 'coc-yaml']
 
 set nobackup
 set nowritebackup
