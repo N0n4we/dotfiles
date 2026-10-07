@@ -4,6 +4,7 @@
   "defaultProvider": "opencode-go",
   "defaultModel": "kimi-k3",
   "defaultThinkingLevel": "high",
+  "tuiMode": "regular",
   "npmCommand": [
     "pnpm"
   ],
