@@ -93,3 +93,48 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
+
+" vim-visual-multi system clipboard fix
+function! VMClipYank() abort
+  call b:VM_Selection.Edit.yank(v:register, 1, 1)
+  let l:parts = get(g:Vm.registers, '"', [])
+  if !empty(l:parts)
+    call setreg('+', join(l:parts, "\n"), 'v')
+  endif
+endfunction
+
+function! VMClipYankExpr() abort
+  if empty(b:VM_Selection.Global.region_at_pos())
+    return "\<Plug>(VM-Yank)"
+  endif
+  return ":\<C-u>call VMClipYank()\<CR>"
+endfunction
+
+function! VMClipPaste(before) abort
+  let l:clip = getreg('+')
+  let l:type = getregtype('+')
+  let l:parts = split(l:clip, '\n', 1)
+
+  let g:Vm.registers['"'] = copy(l:parts)
+
+  try
+    call b:VM_Selection.Edit.paste(
+          \ a:before, 0, g:Vm.extend_mode,
+          \ '"', l:parts)
+  finally
+    call setreg('+', l:clip, l:type)
+  endtry
+endfunction
+
+augroup VMClipboard
+  autocmd!
+  autocmd User visual_multi_mappings
+        \ nnoremap <silent><nowait><expr><buffer>
+        \ y VMClipYankExpr()
+  autocmd User visual_multi_mappings
+        \ nnoremap <silent><nowait><buffer>
+        \ p :<C-u>call VMClipPaste(0)<CR>
+  autocmd User visual_multi_mappings
+        \ nnoremap <silent><nowait><buffer>
+        \ P :<C-u>call VMClipPaste(1)<CR>
+augroup END
