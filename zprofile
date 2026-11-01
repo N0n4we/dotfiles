@@ -9,7 +9,7 @@ function y() {
 	command rm -f -- "$tmp"
 }
 
-export PATH="/opt/homebrew/bin/brew:/opt/homebrew/opt/imagemagick-full/bin:/opt/homebrew/opt/ffmpeg-full/bin:/opt/homebrew/opt/rustup/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:/Users/noname/.local/bin:$PATH"
+export PATH="$HOME/.local/venv/bin:/opt/homebrew/opt/imagemagick-full/bin:/opt/homebrew/opt/ffmpeg-full/bin:/opt/homebrew/opt/rustup/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:/Users/noname/.local/bin:$PATH"
 
 alias z2j='trans -4 -s zh -t ja'
 alias z2e='trans -4 -s zh -t en'
@@ -57,5 +57,4 @@ esac
 # pnpm end
 
 eval "$(fnm env --shell zsh)"
-
 eval "$(atuin init zsh)"

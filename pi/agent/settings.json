@@ -1,16 +1,23 @@
 {
-  "lastChangelogVersion": "0.80.7",
+  "lastChangelogVersion": "1.4.0",
   "theme": "dark",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "kimi-k3",
-  "defaultThinkingLevel": "high",
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4.1-flash-1017",
+  "defaultThinkingLevel": "max",
   "tuiMode": "regular",
   "npmCommand": [
     "pnpm"
   ],
   "packages": [
-    "npm:pi-hermes-memory",
     "npm:pi-web-access",
-    "npm:pi-subagents"
-  ]
+    "npm:@narumitw/pi-btw",
+    "npm:@narumitw/pi-tui-kit",
+    "npm:@narumitw/pi-usage",
+    "npm:@narumitw/pi-stamp"
+  ],
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 100000,
+    "keepRecentTokens": 20000
+  }
 }

@@ -3,16 +3,9 @@
     "openrouter": {
       "models": [
         {
-          "id": "tencent/hy3:free",
-          "contextWindow": 200000
-        }
-      ]
-    },
-    "opencode-go": {
-      "models": [
-        {
-          "id": "kimi-k3",
-          "contextWindow": 200000
+          "id": "deepseek/deepseek-v4.1-flash-1017",
+          "contextWindow": 268000,
+          "vision": true
         }
       ]
     }
