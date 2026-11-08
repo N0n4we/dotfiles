@@ -1,13 +1,11 @@
 {
   "providers": {
     "openrouter": {
-      "models": [
-        {
-          "id": "deepseek/deepseek-v4.1-flash-1017",
-          "contextWindow": 268000,
-          "vision": true
+      "modelOverrides": {
+        "deepseek/deepseek-v4.1-flash-1017": {
+          "contextWindow": 268000
         }
-      ]
+      }
     }
   }
 }
